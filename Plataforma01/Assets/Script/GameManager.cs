@@ -34,53 +34,74 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
         MudarEstado(GameState.Iniciando);
+
+        // primeira cena
         CarregarCena("Splash");
     }
 
     public void MudarEstado(GameState novoEstado)
     {
         estadoAtual = novoEstado;
+
         Debug.Log("Estado atual: " + estadoAtual);
     }
 
     public void CarregarCena(string nomeCena)
     {
-        // Controle de fluxo do jogo
         switch (nomeCena)
         {
+            // SPLASH
             case "Splash":
+
                 SceneManager.LoadScene("Splash");
+
                 break;
 
+            // MENU
             case "MenuPrincipal":
+
                 SceneManager.LoadScene("MenuPrincipal");
+
                 MudarEstado(GameState.MenuPrincipal);
+
                 break;
 
+            // GAMEPLAY
             case "SampleScene":
+
                 if (estadoAtual == GameState.MenuPrincipal)
                 {
+                    // carrega gameplay
                     SceneManager.LoadScene("SampleScene");
+
+                    // carrega GUI junto
+                    SceneManager.LoadScene("GUI", LoadSceneMode.Additive);
+
                     MudarEstado(GameState.Gameplay);
                 }
                 else
                 {
                     Debug.Log("Não pode ir para Gameplay agora!");
                 }
+
                 break;
 
             default:
+
                 Debug.Log("Cena não reconhecida");
+
                 break;
         }
     }
 
-    // Alocação simples de input
+    // INPUT
     public void AtribuirInput(PlayerInput input)
     {
         playerInput = input;
+
         Debug.Log("Input atribuído ao jogador");
     }
+
+    
 }
