@@ -9,7 +9,6 @@ public class Moeda : MonoBehaviour
             
             other.GetComponent<PlayerCoins>().ColetarMoeda();
 
-           
             Destroy(gameObject);
         }
     }

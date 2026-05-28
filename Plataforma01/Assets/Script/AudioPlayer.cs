@@ -90,7 +90,6 @@ public class AudioPlayer : MonoBehaviour
             AudioManager.Instance.Resume();
     }
 
-    // Helper used by the editor and runtime helpers
     private AudioSource GetSourceForEntry(ClipEntry entry)
     {
         if (entry == null) return null;
@@ -101,7 +100,6 @@ public class AudioPlayer : MonoBehaviour
         return null;
     }
 
-    // Convenience methods operating on the currently selected index
     public void PlaySelected() => PlayClip(selectedIndex);
     public void StopSelected() => StopClip(selectedIndex);
     public void PauseSelected() => PauseClip(selectedIndex);

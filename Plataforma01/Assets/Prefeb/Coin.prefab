@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6235662611012382632}
   - component: {fileID: 8769055311731018739}
   - component: {fileID: 7879366789354520309}
-  - component: {fileID: 7085587088075105869}
+  - component: {fileID: 7726924873806424918}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -115,7 +115,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &7085587088075105869
+--- !u!114 &7726924873806424918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +124,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7255609391200904073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9e1def200590c49a567e775a75b876, type: 3}
+  m_Script: {fileID: 11500000, guid: 71825c5fde6b3194b85a187c729feb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Moeda

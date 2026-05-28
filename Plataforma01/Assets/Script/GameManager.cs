@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +21,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton
         if (Instance == null)
         {
             Instance = this;
@@ -36,8 +36,21 @@ public class GameManager : MonoBehaviour
     {
         MudarEstado(GameState.Iniciando);
 
-        // primeira cena
         CarregarCena("Splash");
+    }
+
+    public void LoadMainMenu()
+    {
+        StartCoroutine(LoadMainMenuRoutine());
+    }
+
+    private IEnumerator LoadMainMenuRoutine()
+    {
+        yield return SceneManager.LoadSceneAsync("SampleScene");
+
+        yield return SceneManager.LoadSceneAsync("GUI", LoadSceneMode.Additive);
+
+        estadoAtual = GameState.Gameplay;
     }
 
     public void MudarEstado(GameState novoEstado)
@@ -51,14 +64,12 @@ public class GameManager : MonoBehaviour
     {
         switch (nomeCena)
         {
-            // SPLASH
             case "Splash":
 
                 SceneManager.LoadScene("Splash");
 
                 break;
 
-            // MENU
             case "MenuPrincipal":
 
                 SceneManager.LoadScene("MenuPrincipal");
@@ -67,15 +78,12 @@ public class GameManager : MonoBehaviour
 
                 break;
 
-            // GAMEPLAY
             case "SampleScene":
 
                 if (estadoAtual == GameState.MenuPrincipal)
-                {
-                    // carrega gameplay
+                { 
                     SceneManager.LoadScene("SampleScene");
 
-                    // carrega GUI junto
                     SceneManager.LoadScene("GUI", LoadSceneMode.Additive);
 
                     MudarEstado(GameState.Gameplay);
@@ -95,7 +103,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // INPUT
     public void AtribuirInput(PlayerInput input)
     {
         playerInput = input;
