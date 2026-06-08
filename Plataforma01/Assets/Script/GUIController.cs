@@ -7,12 +7,12 @@ public class GUIController : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerOM.OnMoedaMudou += AtualizarTexto;
+        PlayerOM.OnCoinAdded += AtualizarTexto;
     }
 
     private void OnDisable()
     {
-        PlayerOM.OnMoedaMudou -= AtualizarTexto;
+        PlayerOM.OnCoinAdded -= AtualizarTexto;
     }
 
     void AtualizarTexto(int quantidade)

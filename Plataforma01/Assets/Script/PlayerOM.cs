@@ -3,12 +3,18 @@ using System;
 
 public static class PlayerOM
 {
-    public static Action<int> OnMoedaMudou;
+    public static Action OnIncrementCoin;
+    public static Action<int> OnCoinAdded;
 
-    public static void NotificarMoeda(int quantidade)
+    public static void NotificarMoeda()
     {
-        Debug.Log("Observer notificou: " + quantidade);
+        // Debug.Log("Observer notificou: " + quantidade);
 
-        OnMoedaMudou?.Invoke(quantidade);
+        OnIncrementCoin?.Invoke();
+    }
+
+    public static void AddCoin(int qt)
+    {
+        OnCoinAdded?.Invoke(qt);
     }
 }

@@ -6,8 +6,7 @@ public class Moeda : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
-            other.GetComponent<PlayerCoins>().ColetarMoeda();
+            PlayerOM.NotificarMoeda();
 
             Destroy(gameObject);
         }
